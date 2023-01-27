@@ -108,7 +108,7 @@ const Movie = () => {
             <div className="movie__detail">
                 <div className="movie__detailLeft">
                     <div className="movie__posterBox">
-                        <img className="movie__poster" alt={currentMovieDetail ? currentMovieDetail.original_title : ""} src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />
+                        <img className="movie__poster" alt={currentMovieDetail ? currentMovieDetail.original_title : ""} src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} onError={e => e.currentTarget.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg"} />
                     </div>
                 </div>
                 <div className="movie__detailRight">

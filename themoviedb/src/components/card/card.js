@@ -25,7 +25,7 @@ const Cards = ({movie}) => {
         :
         <Link to={`/movie/${movie.id}`} style={{textDecoration:"none", color:"white"}}>
             <div className="cards">
-                <img className="cards__img" alt={movie.original_title} src={`https://image.tmdb.org/t/p/original${movie?movie.poster_path:""}`} />
+                <img className="cards__img" alt={movie.original_title} src={`https://image.tmdb.org/t/p/original${movie?movie.poster_path:""}`} onError={e => e.currentTarget.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg"} />
                 <div className="cards__overlay">
                     <div className="card__title">{movie?movie.original_title:""}</div>
                     <div className="card__runtime">

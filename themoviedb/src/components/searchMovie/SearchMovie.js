@@ -78,7 +78,6 @@ const SearchMovie = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onClick={() => setShowResults(true)}
                 ></input>
-                {/* <div className="genre-container"> */}
                 <select onChange={(e) => setSelectedGenre(e.target.value)}>
                     <option value="">Select Genre</option>
                     {genres.map((genre) => (
@@ -87,7 +86,6 @@ const SearchMovie = () => {
                         </option>
                     ))}
                 </select>
-                {/* </div> */}
                 <button>Search</button>
                 {searchTerm && showResults && (
                     <div className={`searchResults ${showResults ? 'show' : ''}`}>
@@ -100,7 +98,7 @@ const SearchMovie = () => {
                                     setShowResults(false);
                                 }}
                             >
-                                <img src={`https://image.tmdb.org/t/p/w300${result.poster_path}`} alt={result.original_title} />
+                                <img src={`https://image.tmdb.org/t/p/w300${result.poster_path}`} alt={result.original_title} onError={e => e.currentTarget.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg"} />
                                 <span>{result.original_title}</span>
                             </div>
                         ))}
