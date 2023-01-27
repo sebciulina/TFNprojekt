@@ -3,12 +3,14 @@ import "./movie.css";
 import { useParams } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player/youtube';
+import { Rating } from 'react-simple-star-rating'
 
 const API = process.env.REACT_APP_API_KEY;
 
 const Movie = () => {
     const [currentMovieDetail, setMovie] = useState();
     const [showAllActors, setShowAllActors] = useState(false);
+    const [guestId, setGuestId] = useState();
     const { id } = useParams();
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const Movie = () => {
                 console.log(err);
             }
         }
-
+        handleSession();
         getData();
         window.scrollTo(0, 0);
     }, [id])
@@ -78,6 +80,29 @@ const Movie = () => {
         });
     }
 
+    const handleSession = async () => {
+        const guestRes = await fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${API}`);
+        const guestData = await guestRes.json();
+        const guest_session_id = guestData.guest_session_id;
+
+        setGuestId(guest_session_id);
+    }
+
+    const handleRating = async (rate) => {
+        const body = JSON.stringify({ value: rate * 2 });
+        const headers = { "Content-Type": "application/json" };
+        const ratingRes = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}/rating?api_key=${API}&guest_session_id=${guestId}`,
+            {
+                method: "POST",
+                body,
+                headers,
+            }
+        );
+        const ratingData = await ratingRes.json();
+        console.log(ratingData);
+    }
+
     return (
         <div className="movie">
             <div className="movie__detail">
@@ -93,6 +118,12 @@ const Movie = () => {
                         <div className="movie__rating">
                             {currentMovieDetail ? currentMovieDetail.vote_average : ""} <i className="fas fa-star" />
                             <span className="movie__voteCount">{currentMovieDetail ? "(" + currentMovieDetail.vote_count + ") votes" : ""}</span>
+                            <div className="star__rating">
+                                <Rating
+                                    onClick={handleRating}
+                                    allowFraction={true}
+                                />
+                            </div>
                         </div>
                         <div className="movie__runtime">{currentMovieDetail ? currentMovieDetail.runtime + " mins" : ""}</div>
                         <div className="movie__releaseDate">{currentMovieDetail ? "Release date: " + currentMovieDetail.release_date : ""}</div>

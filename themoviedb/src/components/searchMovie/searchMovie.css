@@ -16,6 +16,7 @@
     margin-right: 5px;
     border-radius: 5px;
     height: 25px;
+    width: 44%;
     }
     
     .searchMovie input::placeholder {
@@ -95,6 +96,7 @@
             margin-right: 5px;
             border-radius: 5px;
             height: 35px;
+            width: 30%;
         }
         
         .search-container option{
