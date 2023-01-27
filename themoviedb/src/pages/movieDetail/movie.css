@@ -203,3 +203,8 @@
 .loading{
     background-color: black;
 }
+
+.checkMark{
+    color: lightgreen;
+    font-size: 30px;
+}

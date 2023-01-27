@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player/youtube';
 import { Rating } from 'react-simple-star-rating'
+import { AiOutlineCheck } from 'react-icons/ai';
 
 const API = process.env.REACT_APP_API_KEY;
 
@@ -11,6 +12,7 @@ const Movie = () => {
     const [currentMovieDetail, setMovie] = useState();
     const [showAllActors, setShowAllActors] = useState(false);
     const [guestId, setGuestId] = useState();
+    const [isVoted, setIsVoted] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
@@ -101,6 +103,12 @@ const Movie = () => {
         );
         const ratingData = await ratingRes.json();
         console.log(ratingData);
+        if(ratingData.status_message === 'Success.'){
+            setIsVoted(true);
+        }
+        else{
+            setIsVoted(false);
+        }
     }
 
     return (
@@ -123,6 +131,7 @@ const Movie = () => {
                                     onClick={handleRating}
                                     allowFraction={true}
                                 />
+                                {isVoted ? (<AiOutlineCheck className="checkMark"/>) : null}
                             </div>
                         </div>
                         <div className="movie__runtime">{currentMovieDetail ? currentMovieDetail.runtime + " mins" : ""}</div>
