@@ -80,3 +80,27 @@
         color: #333;
         padding: 5px;
         }
+        
+        .search-container label {
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        .search-container select {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-right: 5px;
+            border-radius: 5px;
+            height: 35px;
+        }
+        
+        .search-container option{
+            color: black;
+        }
+        
+        .search-container option:checked{
+            background-color: grey;
+        }

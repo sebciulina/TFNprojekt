@@ -8,15 +8,29 @@ const SearchMovie = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [genres, setGenres] = useState([]);
+    const [selectedGenre, setSelectedGenre] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
         if (searchTerm) {
             fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API}&query=${searchTerm}`)
                 .then((res) => res.json())
-                .then((data) => setSearchResults(data.results));
+                .then((data) => {
+                    let results = data.results;
+                    if (selectedGenre !== "") {
+                        results = results.filter(
+                            (result) => result.genre_ids.includes(parseInt(selectedGenre))
+                        );
+                        setSearchResults(results);
+                    }
+                    else{
+                       setSearchResults(results); 
+                    }
+                    
+                });
         }
-    }, [searchTerm]);
+    }, [searchTerm, selectedGenre]);
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -32,12 +46,27 @@ const SearchMovie = () => {
         };
     }, [setShowResults]);
 
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API}&language=en-US`)
+            .then((res) => res.json())
+            .then((data) => setGenres(data.genres));
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate({
-            pathname: "/search",
-            search: `?query=${searchTerm}`,
-        });
+        if (selectedGenre !== "") {
+            navigate({
+                pathname: "/search",
+                search: `?query=${searchTerm}&genre=${selectedGenre}`,
+            });
+        }
+        else {
+            navigate({
+                pathname: "/search",
+                search: `?query=${searchTerm}`,
+            });
+        }
+
     };
 
     return (
@@ -49,6 +78,16 @@ const SearchMovie = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     onClick={() => setShowResults(true)}
                 ></input>
+                {/* <div className="genre-container"> */}
+                <select onChange={(e) => setSelectedGenre(e.target.value)}>
+                    <option value="">Select Genre</option>
+                    {genres.map((genre) => (
+                        <option key={genre.id} value={genre.id}>
+                            {genre.name}
+                        </option>
+                    ))}
+                </select>
+                {/* </div> */}
                 <button>Search</button>
                 {searchTerm && showResults && (
                     <div className={`searchResults ${showResults ? 'show' : ''}`}>
@@ -69,6 +108,7 @@ const SearchMovie = () => {
                 )}
             </div>
         </form>
+
     );
     
 };

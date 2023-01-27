@@ -15,12 +15,22 @@ const MovieList = () => {
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         const searchTerm = searchParams.get("query");
+        const selectedGenre = searchParams.get("genre");
         if (searchTerm) {
             fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API}&query=${searchTerm}`)
                 .then((res) => res.json())
                 .then((data) => {
-                    setMovieList(data.results);
-                    setOriginalMovieList(data.results);
+                    if (selectedGenre) {
+                        let results = data.results;
+                        results = results.filter(
+                            (result) => result.genre_ids.includes(parseInt(selectedGenre))
+                        );
+                        setMovieList(results);
+                        setOriginalMovieList(results);
+                    } else {
+                        setMovieList(data.results);
+                        setOriginalMovieList(data.results);
+                    }
                 });
             setSearch(true);
         } else {

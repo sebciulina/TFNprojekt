@@ -33,6 +33,7 @@ margin:  2.5rem;
     padding: 5px 10px;
     font-size: 14px;
     margin-left: 10px;
+    border-radius: 5px;
 }
 
 .sort__container option{
