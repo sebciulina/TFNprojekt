@@ -12,91 +12,71 @@ const Movie = () => {
     const { id } = useParams();
 
     useEffect(() => {
+        const getData = async () => {
+            try {
+                const res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API}&append_to_response=credits,videos,images`);
+                const data = await res.json();
+                setMovie(data);
 
-    const getData = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API}&language=en-US`)
-            .then(res => res.json())
-            .then(data => setMovie(data))
-    }
-
-    const getDirector = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API}`)
-            .then(res => res.json())
-            .then(data => {
-                const director = data.crew.find(member => member.job === 'Director');
-                if (director) {
-                    setMovie(prevMovie => {
-                        return {
-                            ...prevMovie,
-                            director: director.name
-                        }
-                    });
-                } else {
-                    setMovie(prevMovie => {
-                        return {
-                            ...prevMovie,
-                            director: 'Director not found'
-                        }
-                    });
-                }
-            });
-    }
-
-    const getCrew = async () => {
-        try {
-            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API}`);
-            const data = await res.json();
-            setMovie(prevMovie => {
-                return {
-                    ...prevMovie,
-                    cast: data.cast
-                }
-            });
-        } catch (err) {
-            console.log(err);
+                getDirector(data);
+                getCrew(data);
+                getTrailer(data);
+                getGallery(data);
+            } catch (err) {
+                console.log(err);
+            }
         }
-    }
-    
-    const getTrailer = async () => {
-        try {
-            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API}&language=en-US`);
-            const data = await res.json();
-            const trailer = data.results.filter(result => result.type === "Trailer").map(result => `https://www.youtube.com/watch?v=${result.key}`)[0];
-            setMovie(prevMovie => {
-                return {
-                    ...prevMovie,
-                    trailer
-                }
-            });
-        } catch (err) {
-            console.log(err);
-        }
-    }
-    
-    const getGallery = async () => {
-        try {
-            const res = await fetch(`https://api.themoviedb.org/3/movie/${id}/images?api_key=${API}`);
-            const data = await res.json();
-            setMovie(prevMovie => {
-                return {
-                    ...prevMovie,
-                    gallery: data.backdrops
-                }
-            })
-        } catch (err) {
-            console.log(err);
-        }
-    }
 
         getData();
-        getDirector();
-        getCrew();
-        getGallery();
-        getTrailer();
         window.scrollTo(0, 0);
     }, [id])
 
-
+    const getDirector = (data) => {
+        const director = data.credits.crew.find(member => member.job === 'Director');
+        if (director) {
+            setMovie(prevMovie => {
+                return {
+                    ...prevMovie,
+                    director: director.name
+                }
+            });
+        } else {
+            setMovie(prevMovie => {
+                return {
+                    ...prevMovie,
+                    director: 'Director not found'
+                }
+            });
+        }
+    }
+    
+    const getCrew = (data) => {
+        setMovie(prevMovie => {
+            return {
+                ...prevMovie,
+                cast: data.credits.cast
+            }
+        });
+    }
+    
+    const getTrailer = (data) => {
+        const trailer = data.videos.results.filter(result => result.type === "Trailer").map(result => `https://www.youtube.com/watch?v=${result.key}`)[0];
+        setMovie(prevMovie => {
+            return {
+                ...prevMovie,
+                trailer
+            }
+        });
+    }
+    
+    const getGallery = (data) => {
+        setMovie(prevMovie => {
+            return {
+                ...prevMovie,
+                gallery: data.images.backdrops
+            }
+        });
+    }
 
     return (
         <div className="movie">

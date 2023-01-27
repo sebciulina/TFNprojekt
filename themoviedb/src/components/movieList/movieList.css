@@ -12,3 +12,33 @@ margin:  2.5rem;
     flex-wrap: wrap ;
     justify-content: center;
 }
+
+.sort__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+    color: white;
+}
+
+.sort__container label {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.sort__container select {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.sort__container option{
+    color: black;
+}
+
+.sort__container option:checked{
+    background-color: grey;
+}

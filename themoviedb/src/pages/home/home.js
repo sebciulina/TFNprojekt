@@ -21,12 +21,13 @@ const Home = () => {
         <>
             <div className="poster">
                 <Carousel
-                    showThumbs={false}
+                    selectedItem={0}
                     autoPlay={true}
                     transitionTime={5}
+                    showThumbs={false}
                     infiniteLoop={true}
                     showStatus={false}
-                    selectedItem={0}
+                    
                 >
                     {
                         popularMovies.map((movie, index) => (

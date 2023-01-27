@@ -40,7 +40,6 @@ const SearchMovie = () => {
         });
     };
 
-
     return (
         <form className="searchMovie" onSubmit={handleSubmit}>
             <div className="search-container">
