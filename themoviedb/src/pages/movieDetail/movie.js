@@ -213,7 +213,7 @@ const Movie = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Movie

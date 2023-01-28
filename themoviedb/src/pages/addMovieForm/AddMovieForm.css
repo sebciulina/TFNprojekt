@@ -1,0 +1,50 @@
+.AddMovieForm {
+    width: 30%;
+    margin: 0 auto;
+    background-color: #333;
+    color: #fff; 
+    padding: 1em;
+    margin-top: 15px;
+    border-radius: 5px;
+  }
+  
+  .AddMovieForm form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .AddMovieForm form input {
+    background-color: #444;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    flex-grow: 1;
+  }
+  
+  .AddMovieForm form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px white;
+  }
+  
+  .AddMovieForm form button {
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 30%;
+    margin: 0 auto;
+  }
+
+  .AddMovieForm form button:hover {
+    background-color: #212121;
+  }
+  
+  .AddMovieForm form button:disabled {
+    background-color: #888;
+  }
+  

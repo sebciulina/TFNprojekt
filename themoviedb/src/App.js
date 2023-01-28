@@ -4,6 +4,8 @@ import Header from './components/header/Header';
 import Home from './pages/home/home';
 import MovieList from './components/movieList/movieList';
 import Movie from './pages/movieDetail/movie';
+import MyMovies from './pages/myMovies/MyMovies';
+import AddMovieForm from './pages/addMovieForm/AddMovieForm';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
                 <Route path="movie/:id" element={<Movie />}></Route>
                 <Route path="movies/:type" element={<MovieList />}></Route>
                 <Route path="search" element={<MovieList />}></Route>
+                <Route path="mymovies" element={<MyMovies />}></Route>
+                <Route path="add" element={<AddMovieForm />}></Route>
                 <Route path="/*" element={<h1>Error Page</h1>}></Route>
             </Routes>
         </Router>
