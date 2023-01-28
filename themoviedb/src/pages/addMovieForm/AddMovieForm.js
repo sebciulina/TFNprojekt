@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import './AddMovieForm.css';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 
 const AddMovieForm = () => {
+    const navigate = useNavigate();
 
     return(
         <div className="AddMovieForm">
@@ -26,13 +28,14 @@ const AddMovieForm = () => {
                         ...values,
                         genres: genresArray,
                         cast: castArray,
-                        vote: 0,
-                        voteCount: 0,
+                        vote: 1,
+                        voteCount: 1,
                     }
 
                     axios.post('http://localhost:5000/movies', newMovie)
                         .then(response => {
                             console.log(response);
+                            navigate("/mymovies");
                         })
                         .catch(error => {
                             console.log(error);

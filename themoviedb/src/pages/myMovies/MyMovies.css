@@ -1,4 +1,33 @@
+.MyMovies{
+    padding: 0 3rem 3rem 3rem;
+}
+
 .list__title {
     font-size: 1.75rem;
     margin:  2.5rem;
     }
+
+.list__cards {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+}
+
+.add__button{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.MyMovies button {
+    background-color: #333; /* dark gray */
+    color: #fff; /* white */
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+    
+.MyMovies button:hover {
+    background-color: #444; /* even darker gray */
+}
