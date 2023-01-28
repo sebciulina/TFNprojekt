@@ -30,7 +30,6 @@ const AddMovieForm = () => {
                         cast: castArray,
                         vote: 0,
                         voteCount: 0,
-                        comments: "",
                     }
 
                     axios.post('http://localhost:5000/movies', newMovie)
