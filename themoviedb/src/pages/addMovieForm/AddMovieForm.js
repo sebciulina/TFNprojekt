@@ -28,8 +28,9 @@ const AddMovieForm = () => {
                         ...values,
                         genres: genresArray,
                         cast: castArray,
-                        vote: 1,
-                        voteCount: 1,
+                        vote: 0,
+                        voteCount: 0,
+                        comments: "",
                     }
 
                     axios.post('http://localhost:5000/movies', newMovie)

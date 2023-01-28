@@ -23,14 +23,14 @@ const MyMoviesCard = ({movie}) => {
             </SkeletonTheme>
         </div>
         :
-        <Link to={`/mymovie/${movie._id}`} style={{textDecoration:"none", color:"white"}}>
+        <Link to={`/mymovies/${movie._id}`} style={{textDecoration:"none", color:"white"}}>
             <div className="cards">
                 <img className="cards__img" alt={movie ? movie.title : ""} src={movie ? movie.picture : ""} onError={e => e.currentTarget.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg"} />
                 <div className="cards__overlay">
                     <div className="card__title">{movie ? movie.title : ""}</div>
                     <div className="card__runtime">
                         {movie ? movie.releaseDate : ""}
-                        <span className="card__rating">{movie ? movie.vote/movie.voteCount : ""}<i className="fas fa-star" /></span>
+                        <span className="card__rating">{movie ? Math.round(((movie.vote/movie.voteCount) + Number.EPSILON) * 100) / 100 : ""}<i className="fas fa-star" /></span>
                     </div>
                     <div className="card__description">{movie ? movie.description.slice(0,118)+"..." : ""}</div>
                 </div>

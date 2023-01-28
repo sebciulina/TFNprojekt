@@ -1,0 +1,53 @@
+.actorImage p{
+    padding: .5rem;
+    margin-right: 1rem;
+}
+
+.movie__comments {
+    margin: 20px 0;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+  }
+  
+  .movie__heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .add__comment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .add__comment textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    font-size: 1rem;
+    resize: none;
+  }
+  
+  .add__comment button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: black;
+  }
+  

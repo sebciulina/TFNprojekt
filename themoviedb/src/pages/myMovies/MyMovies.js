@@ -27,7 +27,7 @@ const MyMovies = () => {
 
     return (
         <div className="MyMovies">
-            <h2 className="list__title">MY MOVIES</h2>
+            <h2 className="list__title">my movies</h2>
             <div className="add__button">
                 <button onClick={addNewOnClick}>Add new</button>
             </div>

@@ -26,7 +26,7 @@ recordRoutes.get("/movies", (req, res) => {
       });
   });
   
-  recordRoutes.get("/movies:id", (req, res) => {
+  recordRoutes.get("/movies/:id", (req, res) => {
     const id = req.params.id;
     db.collection("records").findOne({ _id: ObjectId(id) }, (err, result) => {
       if (err) throw err;
@@ -41,6 +41,24 @@ recordRoutes.get("/movies", (req, res) => {
       res.json({ message: "Movie added successfully" });
     });
   });
+
+  recordRoutes.patch("/movies/vote/:id", (req, res) => {
+    const id = req.params.id;
+    const vote = req.body.vote;
+    db.collection("records").updateOne({ _id: ObjectId(id) }, { $inc: { vote: vote, voteCount: 1 } }, (err, result) => {
+      if (err) throw err;
+      res.json({ message: "Vote added successfully" });
+    });
+  });
+
+  recordRoutes.post("/movies/:id/comments", (req, res) => {
+    const id = req.params.id;
+    const comment = req.body.comment;
+    db.collection("records").updateOne({ _id: ObjectId(id) }, { $push: { comments: comment } }, (err, result) => {
+        if (err) throw err;
+        res.json({ message: "Comment added successfully" });
+    });
+});
   
 
 module.exports = recordRoutes;
