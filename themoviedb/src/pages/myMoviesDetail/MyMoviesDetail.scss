@@ -50,8 +50,10 @@
     background-color: #f2f2f2;
     color: black;
   }
-  
   .error__message{
     color: red;
+  }
+  .error__comment{
+    @extend .error__message;
     margin-top: 15px;
   }

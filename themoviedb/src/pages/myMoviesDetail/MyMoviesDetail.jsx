@@ -157,7 +157,7 @@ const MyMoviesDetail = () => {
                 <div className="add__comment">
                     <textarea rows="10" cols="30" placeholder="Add a comment" onChange={handleCommentChange} value={comment} required></textarea>
                     <button onClick={handleAddComment}>Add</button>
-                    <div className="error__message">
+                    <div className="error__comment">
                         {errorMessage ? errorMessage : null}
                     </div>
                 </div>
