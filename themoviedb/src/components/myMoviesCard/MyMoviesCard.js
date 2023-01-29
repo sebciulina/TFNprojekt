@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton"
-import "../card/card.css"
+import "../card/card.scss"
 import { Link } from "react-router-dom"
 
 const MyMoviesCard = ({movie}) => {

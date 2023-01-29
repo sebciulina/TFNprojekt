@@ -1,3 +1,10 @@
+$primary-color: #4CAF50;
+$secondary-color: #f3ce13;
+
+@mixin text-center {
+  text-align: center;
+}
+
 .movie {
     width: 100%;
     position: relative;
@@ -96,7 +103,7 @@
     font-size: 2.4rem;
     margin-bottom: 1.25rem;
     font-weight: 600;
-    text-align: center;
+    @include text-center;
 }
 
 .movie__Button {
@@ -117,7 +124,7 @@
 }
 
 .movie__imdbButton {
-    background-color:#f3ce13;
+    background-color: $secondary-color;
 }
 
 .newTab {
@@ -148,7 +155,7 @@
 .movie__cast{
     position: relative;
     width: 80%;
-    text-align: center;
+    @include text-center;
     margin-top: 100px;
 }
 
@@ -168,11 +175,11 @@
 .actorImage p {
     position: absolute;
     width: 100%;
-    text-align: center;
+    @include text-center;
 }
 
 .showAllActorsButton{
-    background-color:#f3ce13;
+    background-color: $secondary-color;
     padding: 0.8rem 2rem;
     border-radius: 20px;
     cursor: pointer;
@@ -183,7 +190,7 @@
 }
 
 .movie__headingGallery{
-    text-align: center;
+    @include text-center;
 }
 
 .movie__gallery{
@@ -205,6 +212,6 @@
 }
 
 .checkMark{
-    color: lightgreen;
-    font-size: 30px;
+    color: $primary-color;
+    font-size: 15px*2;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './MyMovies.css';
+import './MyMovies.scss';
 import { useNavigate } from "react-router-dom";
 import MyMoviesCard from "../../components/myMoviesCard/MyMoviesCard";
 

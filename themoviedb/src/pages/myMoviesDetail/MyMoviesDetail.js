@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./MyMoviesDetail.css";
-import "../movieDetail/movie.css";
+import "./MyMoviesDetail.scss";
+import "../movieDetail/movie.scss";
 import axios from 'axios';
 import { useParams } from "react-router-dom";
 import ReactPlayer from 'react-player/youtube';

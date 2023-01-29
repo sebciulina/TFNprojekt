@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import './AddMovieForm.css';
+import './AddMovieForm.scss';
 import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 
