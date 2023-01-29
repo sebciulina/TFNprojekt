@@ -1,8 +1,8 @@
-.posterImage{
+.posterImage {
     height: 600px;
 }
 
-.posterImage > img {
+.posterImage>img {
     margin: auto;
     display: block;
     width: 100%;
@@ -18,10 +18,10 @@
     width: 100%;
     justify-content: flex-end;
     align-items: flex-start;
-    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
+    background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
     opacity: 1;
     transition: opacity .3s;
-}   
+}
 
 .posterImage__overlay:hover {
     opacity: 1;

@@ -53,7 +53,7 @@ const Movie = () => {
             });
         }
     }
-    
+
     const getCrew = (data) => {
         setMovie(prevMovie => {
             return {
@@ -62,7 +62,7 @@ const Movie = () => {
             }
         });
     }
-    
+
     const getTrailer = (data) => {
         const trailer = data.videos.results.filter(result => result.type === "Trailer").map(result => `https://www.youtube.com/watch?v=${result.key}`)[0];
         setMovie(prevMovie => {
@@ -72,7 +72,7 @@ const Movie = () => {
             }
         });
     }
-    
+
     const getGallery = (data) => {
         setMovie(prevMovie => {
             return {
@@ -103,10 +103,10 @@ const Movie = () => {
         );
         const ratingData = await ratingRes.json();
         console.log(ratingData);
-        if(ratingData.status_message === 'Success.'){
+        if (ratingData.status_message === 'Success.') {
             setIsVoted(true);
         }
-        else{
+        else {
             setIsVoted(false);
         }
     }
@@ -131,7 +131,7 @@ const Movie = () => {
                                     onClick={handleRating}
                                     allowFraction={true}
                                 />
-                                {isVoted ? (<AiOutlineCheck className="checkMark"/>) : null}
+                                {isVoted ? (<AiOutlineCheck className="checkMark" />) : null}
                             </div>
                         </div>
                         <div className="movie__runtime">{currentMovieDetail ? currentMovieDetail.runtime + " mins" : ""}</div>

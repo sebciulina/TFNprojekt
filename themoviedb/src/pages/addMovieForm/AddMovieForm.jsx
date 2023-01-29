@@ -7,7 +7,7 @@ import axios from 'axios';
 const AddMovieForm = () => {
     const navigate = useNavigate();
 
-    return(
+    return (
         <div className="AddMovieForm">
             <Formik
                 initialValues={{
@@ -51,7 +51,7 @@ const AddMovieForm = () => {
                     }
                     return errors;
                 }}
-                onSubmit={(values, {setSubmitting}) => {
+                onSubmit={(values, { setSubmitting }) => {
                     const genresArray = values.genres.split(',');
                     const castArray = values.cast.split(',');
 

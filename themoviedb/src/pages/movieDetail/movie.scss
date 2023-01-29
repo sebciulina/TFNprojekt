@@ -2,14 +2,14 @@ $primary-color: #4CAF50;
 $secondary-color: #f3ce13;
 
 @mixin text-center {
-  text-align: center;
+    text-align: center;
 }
 
 .movie {
     width: 100%;
     position: relative;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -20,7 +20,7 @@ $secondary-color: #f3ce13;
 .movie__backdrop {
     width: 100%;
     height: 500px;
-    object-fit:cover;
+    object-fit: cover;
     object-position: 0 35%;
 }
 
@@ -37,7 +37,7 @@ $secondary-color: #f3ce13;
 }
 
 .movie__poster {
-    width:300px;
+    width: 300px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.86) 0px 22px 40px 6px;
 }
@@ -47,10 +47,10 @@ $secondary-color: #f3ce13;
     display: flex;
     flex-direction: column;
     height: 390px;
-    justify-content:space-between ;
+    justify-content: space-between;
 }
 
-.movie__detailRightTop > div{
+.movie__detailRightTop>div {
     text-shadow: 0px 0px 5px #000000;
     margin-bottom: .5rem;
 }
@@ -89,7 +89,8 @@ $secondary-color: #f3ce13;
     position: relative;
     align-items: center;
 }
-.synopsisText > div:last-of-type {
+
+.synopsisText>div:last-of-type {
     margin-left: auto;
 }
 
@@ -119,8 +120,8 @@ $secondary-color: #f3ce13;
 }
 
 .movie__homeButton {
-    background-color:rgb(255, 0, 0);
-    
+    background-color: rgb(255, 0, 0);
+
 }
 
 .movie__imdbButton {
@@ -152,7 +153,7 @@ $secondary-color: #f3ce13;
     justify-content: center;
 }
 
-.movie__cast{
+.movie__cast {
     position: relative;
     width: 80%;
     @include text-center;
@@ -178,7 +179,7 @@ $secondary-color: #f3ce13;
     @include text-center;
 }
 
-.showAllActorsButton{
+.showAllActorsButton {
     background-color: $secondary-color;
     padding: 0.8rem 2rem;
     border-radius: 20px;
@@ -189,29 +190,29 @@ $secondary-color: #f3ce13;
     margin: 15px;
 }
 
-.movie__headingGallery{
+.movie__headingGallery {
     @include text-center;
 }
 
-.movie__gallery{
+.movie__gallery {
     width: 80%;
     margin-top: 20px
 }
 
 .movie__images {
     width: 50%;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
-.movie__trailer{
+.movie__trailer {
     margin: 20px;
 }
 
-.loading{
+.loading {
     background-color: black;
 }
 
-.checkMark{
+.checkMark {
     color: $primary-color;
     font-size: 15px*2;
 }

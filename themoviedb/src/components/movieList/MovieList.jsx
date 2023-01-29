@@ -69,7 +69,7 @@ const MovieList = () => {
         <div className="movie__list">
             <h2 className="list__title">{search ? `SEARCH RESULTS` : (type ? type : "POPULAR").toUpperCase()}</h2>
             <div className="sort__container">
-                <label>Sort by: 
+                <label>Sort by:
                     <select onChange={handleSort}>
                         <option value="default">Default</option>
                         <option value="original_title">Title</option>

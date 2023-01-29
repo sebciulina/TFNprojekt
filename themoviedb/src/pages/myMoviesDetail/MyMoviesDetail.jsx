@@ -25,7 +25,7 @@ const MyMoviesDetail = () => {
                 console.log(error);
             });
     }, [id, isVoted, commentState])
-
+    console.log(currentMovieDetail);
     const handleVote = async (vote) => {
         vote = vote * 2;
         if (isVoted === false) {
@@ -56,7 +56,7 @@ const MyMoviesDetail = () => {
     }
 
     const handleAddComment = () => {
-        if(!comment){
+        if (!comment) {
             setErrorMessage("Comment can't be empty!");
             return;
         }
@@ -84,7 +84,7 @@ const MyMoviesDetail = () => {
             <div className="movie__detail">
                 <div className="movie__detailLeft">
                     <div className="movie__posterBox">
-                        <img className="movie__poster" alt={currentMovieDetail ? currentMovieDetail.title : ""} src={currentMovieDetail ? currentMovieDetail.picture : ""} onError={e => e.currentTarget.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg"} />
+                        <img className="movie__poster" alt={currentMovieDetail && currentMovieDetail.title} src={currentMovieDetail && currentMovieDetail.picture} onError={e => e.currentTarget.src = "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg"} />
                     </div>
                 </div>
                 <div className="movie__detailRight">

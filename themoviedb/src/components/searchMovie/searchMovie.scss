@@ -5,9 +5,9 @@
     border-radius: 5px;
     box-shadow: 0px 0px 10px #333;
     flex-wrap: wrap;
-    }
-    
-    .searchMovie input {
+}
+
+.searchMovie input {
     flex: 1;
     background-color: white;
     border: none;
@@ -17,13 +17,13 @@
     border-radius: 5px;
     height: 25px;
     width: 44%;
-    }
-    
-    .searchMovie input::placeholder {
+}
+
+.searchMovie input::placeholder {
     color: #9e9e9e;
-    }
-    
-    .searchMovie button {
+}
+
+.searchMovie button {
     background-color: #ffc107;
     color: #1c1c1c;
     border: none;
@@ -32,17 +32,17 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 10px;
-    }
-    
-    .searchMovie button:hover {
+}
+
+.searchMovie button:hover {
     background-color: #ffb300;
-    }
-    
-    .search-container {
+}
+
+.search-container {
     position: relative;
-    }
-    
-    .searchResults {
+}
+
+.searchResults {
     display: none;
     flex-wrap: wrap;
     position: absolute;
@@ -53,64 +53,64 @@
     padding: 10px;
     box-sizing: border-box;
     overflow-y: scroll;
-    max-height:600px;
-    padding-right:20px;
-    }
-    
-    .searchResults.show {
+    max-height: 600px;
+    padding-right: 20px;
+}
+
+.searchResults.show {
     display: flex;
     border-radius: 5px;
-    }
+}
 
-    .result {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 5px;
-        cursor: pointer;
-        margin-bottom: 10px;
-        border: 1px solid black;
-        background-color: darkgrey;
-        border-radius: 3px;
-        -webkit-box-shadow: 8px 14px 8px -8px rgba(66, 68, 90, 1);
-        -moz-box-shadow: 8px 14px 8px -8px rgba(66, 68, 90, 1);
-        box-shadow: 8px 14px 8px -8px rgba(66, 68, 90, 1);
-    }
-    
-    .result img {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-        object-fit: cover;
-    }
+.result {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    background-color: darkgrey;
+    border-radius: 3px;
+    -webkit-box-shadow: 8px 14px 8px -8px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 14px 8px -8px rgba(66, 68, 90, 1);
+    box-shadow: 8px 14px 8px -8px rgba(66, 68, 90, 1);
+}
 
-    .result span {
-        font-size: 14px;
-        color: #333;
-        padding: 5px;
-        }
-        
-        .search-container label {
-            font-size: 14px;
-            margin-right: 10px;
-        }
-        
-        .search-container select {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            font-size: 14px;
-            margin-right: 5px;
-            border-radius: 5px;
-            height: 35px;
-            width: 30%;
-        }
-        
-        .search-container option{
-            color: black;
-        }
-        
-        .search-container option:checked{
-            background-color: grey;
-        }
+.result img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.result span {
+    font-size: 14px;
+    color: #333;
+    padding: 5px;
+}
+
+.search-container label {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.search-container select {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 5px;
+    border-radius: 5px;
+    height: 35px;
+    width: 30%;
+}
+
+.search-container option {
+    color: black;
+}
+
+.search-container option:checked {
+    background-color: grey;
+}

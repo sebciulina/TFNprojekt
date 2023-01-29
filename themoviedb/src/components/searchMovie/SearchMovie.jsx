@@ -24,10 +24,10 @@ const SearchMovie = () => {
                         );
                         setSearchResults(results);
                     }
-                    else{
-                       setSearchResults(results); 
+                    else {
+                        setSearchResults(results);
                     }
-                    
+
                 });
         }
     }, [searchTerm, selectedGenre]);
@@ -108,7 +108,7 @@ const SearchMovie = () => {
         </form>
 
     );
-    
+
 };
 
 
