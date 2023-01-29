@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./movieList.scss";
 import { useLocation, useParams } from "react-router-dom";
-import Cards from "../card/card";
+import Cards from "../card/Card";
 
 const API = process.env.REACT_APP_API_KEY;
 

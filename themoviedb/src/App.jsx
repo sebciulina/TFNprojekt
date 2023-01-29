@@ -1,9 +1,9 @@
 import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Header from './components/header/Header';
-import Home from './pages/home/home';
-import MovieList from './components/movieList/movieList';
-import Movie from './pages/movieDetail/movie';
+import Home from './pages/home/Home';
+import MovieList from './components/movieList/MovieList';
+import Movie from './pages/movieDetail/Movie';
 import MyMovies from './pages/myMovies/MyMovies';
 import AddMovieForm from './pages/addMovieForm/AddMovieForm';
 import MyMoviesDetail from './pages/myMoviesDetail/MyMoviesDetail';

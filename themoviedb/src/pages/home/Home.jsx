@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import "./home.scss"
+import "./Home.scss"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom";
-import MovieList from "../../components/movieList/movieList";
+import MovieList from "../../components/movieList/MovieList";
 
 const API = process.env.REACT_APP_API_KEY;
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./movie.scss";
+import "./Movie.scss";
 import { useParams } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import ReactPlayer from 'react-player/youtube';
