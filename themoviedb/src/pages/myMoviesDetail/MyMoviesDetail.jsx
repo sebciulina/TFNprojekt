@@ -13,6 +13,7 @@ const MyMoviesDetail = () => {
     const [isVoted, setIsVoted] = useState(false);
     const [comment, setComment] = useState("");
     const [commentState, setCommentSate] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     const { id } = useParams();
 
     useEffect(() => {
@@ -55,23 +56,28 @@ const MyMoviesDetail = () => {
     }
 
     const handleAddComment = () => {
+        if(!comment){
+            setErrorMessage("Comment can't be empty!");
+            return;
+        }
         fetch(`http://localhost:5000/movies/${id}/comments`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ comment: comment })
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ comment: comment })
         })
-        .then(res => res.json())
-        .then(data => {
-          if (data.message === 'Comment added successfully') {
-            setCommentSate(!commentState);
-          }
-        })
-        .catch(err => console.log(err));
+            .then(res => res.json())
+            .then(data => {
+                if (data.message === 'Comment added successfully') {
+                    setCommentSate(!commentState);
+                }
+            })
+            .catch(err => console.log(err));
         setComment("");
-      }
-      
+        setErrorMessage("");
+    }
+
 
     return (
         <div className="movie">
@@ -149,8 +155,11 @@ const MyMoviesDetail = () => {
             <div className="movie__comments">
                 <div className="movie__heading">Comments</div>
                 <div className="add__comment">
-                    <textarea rows="10" cols="30" placeholder="Add a comment" onChange={handleCommentChange} value={comment}></textarea>
+                    <textarea rows="10" cols="30" placeholder="Add a comment" onChange={handleCommentChange} value={comment} required></textarea>
                     <button onClick={handleAddComment}>Add</button>
+                    <div className="error__message">
+                        {errorMessage ? errorMessage : null}
+                    </div>
                 </div>
                 {
                     currentMovieDetail && currentMovieDetail.comments &&
